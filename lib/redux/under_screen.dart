@@ -28,6 +28,7 @@ class _UnderScreenState extends State<UnderScreen> {
             StoreConnector<CountState,int>(
               converter: (store) => store.state.count,
               builder: (context, count) {
+                // 缺点：UI视图和Redux数据通用逻辑耦和在一起，无发通过mock数据来对UI进行UT
                 return Text(
                   count.toString(),
                   style: Theme.of(context).textTheme.display1,
